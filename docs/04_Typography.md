@@ -1,58 +1,61 @@
 # 04_Typography
 
-> Version: 1.1.0  
-> Status: Draft — Git Ready  
-> Owner: LINKGENT Brand OS  
+> Version: 1.2.0  
+> Status: Release Candidate  
+> Owner: Brand Director  
+> Maintainer: Repository Maintainer  
 > Last Updated: 2026-07-24
 
 ---
 
-# Purpose
+## Purpose
 
 The LINKGENT Typography System defines a shared typographic language for presenting structured information across every LINKGENT touchpoint.
 
-This system is designed for consistent use across:
+It applies to:
 
-- Presentation
+- Presentations
 - Web
-- Word
-- Figma
+- Word and Google Docs
+- Figma and Figma Slides
 - Canva
 - AI-generated documents
 - Internal documentation
 - Future digital products
 
-Typography at LINKGENT is not treated as visual styling alone.
-
-It is part of the information architecture.
+Typography is not visual styling alone. It is part of information architecture.
 
 The system exists to make the meaning, importance, sequence, and relationship of information visible before the reader examines the content in detail.
 
-This specification ensures that typography remains:
+---
 
-- Structured
-- Readable
-- Accessible
-- Consistent
-- Scalable
-- Cross-platform
-- AI-readable
+## Inheritance and Ownership
 
-Rather than optimizing typography for a single application, this document establishes a platform-independent Typography System that can be referenced by people, design tools, code, and AI.
+This file inherits:
+
+1. [`../CONSTITUTION.md`](../CONSTITUTION.md)
+2. [`01_Brand_Core.md`](./01_Brand_Core.md)
+3. [`03_Color_System.md`](./03_Color_System.md)
+
+This file is the canonical owner of:
+
+- Font family selection
+- Typography hierarchy
+- Typography scale
+- Minimum typography sizes
+- Typography naming
+- Cross-platform typography mapping
+- Typography accessibility rules
+
+[`05_Design_Tokens.md`](./05_Design_Tokens.md) operationalizes these roles as tokens. Applied Systems define context-specific use without redefining the canonical values.
 
 ---
 
-# Philosophy
+## Principles
 
-## Typography Is Information Architecture
+### Typography Is Information Architecture
 
-Typography is part of information architecture.
-
-It should not merely display content; it should reveal structure.
-
-Readers should understand the organization of information before reading the content itself.
-
-Typography should clarify:
+Typography must reveal:
 
 - What is most important
 - What belongs together
@@ -60,31 +63,15 @@ Typography should clarify:
 - What is supporting information
 - What action or interpretation is expected
 
-Typography should never be used as a substitute for clear thinking or proper information organization.
+Typography must not compensate for weak information organization.
 
----
+### Clarity First
 
-## Clarity First
+Visual expression must not reduce readability, comprehension, or usability.
 
-Typography exists to communicate.
+Decorative decisions are permitted only when they support meaning.
 
-Visual expression must never reduce readability, comprehension, or usability.
-
-Decorative decisions should only be introduced when they support meaning.
-
----
-
-## Information Hierarchy
-
-The structure of information should be visible before individual sentences are read.
-
-Size, weight, spacing, position, and alignment should guide the reader naturally through the content.
-
-Hierarchy should communicate meaning rather than visual preference.
-
----
-
-## Minimal Expression
+### Minimal Expression
 
 Use the smallest number of typographic styles necessary to communicate structure clearly.
 
@@ -96,15 +83,7 @@ Fewer styles create:
 - Better cross-platform reproduction
 - More reliable AI generation
 
-Variation should be intentional, not decorative.
-
----
-
-## Human and AI Readability
-
-Typography definitions must be understandable by both humans and AI systems.
-
-Style names should represent semantic roles rather than visual appearance.
+### Semantics Before Appearance
 
 Preferred:
 
@@ -118,49 +97,25 @@ Avoid:
 Large Blue Bold Text
 ```
 
-Semantic naming allows the same typographic intent to be implemented consistently across different applications and output formats.
+### Cross-platform Consistency
+
+Exact rendering may vary by platform. Hierarchy, meaning, readability, and rhythm must remain consistent.
+
+No platform should create an independent typography system unless a documented technical limitation requires an applied mapping.
 
 ---
 
-## Cross-Platform Consistency
+## Canonical Fonts
 
-The Typography System should remain recognizable across:
-
-- Windows
-- macOS
-- Browsers
-- Microsoft Office
-- Figma
-- Canva
-- AI-generated outputs
-- Future LINKGENT applications
-
-Exact rendering may vary by platform, but hierarchy, meaning, and visual rhythm must remain consistent.
-
-No platform should create an independent typography system unless a documented technical limitation requires it.
-
----
-
-# Font
-
-## Japanese Primary Font
+### Japanese Primary Font
 
 ```text
 BIZ UDPゴシック
 ```
 
-BIZ UDPゴシック is the primary Japanese typeface for LINKGENT.
+Use BIZ UDPゴシック as the primary Japanese typeface because it provides high legibility, Universal Design characteristics, clear character distinction, and stable use in Microsoft environments.
 
-It is selected because it provides:
-
-- High legibility
-- Universal Design principles
-- Strong readability at small sizes
-- Stable use in Microsoft environments
-- Clear distinction between similar characters
-- Appropriate neutrality for business communication
-
-### Recommended Weights
+Recommended weights:
 
 | Semantic Role | Weight |
 |---|---:|
@@ -171,28 +126,15 @@ It is selected because it provides:
 
 Use Bold only when hierarchy or emphasis requires it.
 
-Avoid using multiple weights without a defined semantic purpose.
-
----
-
-## Latin and Numeric Primary Font
+### Latin and Numeric Primary Font
 
 ```text
 Inter
 ```
 
-Inter is the primary typeface for English text, Latin characters, and numbers when platform support allows.
+Use Inter for English text, Latin characters, and numbers when platform support allows.
 
-It is selected because it is:
-
-- Modern
-- Neutral
-- Highly readable
-- Optimized for digital interfaces
-- Suitable for numerical information
-- Widely supported in design and web environments
-
-### Recommended Weights
+Recommended weights:
 
 | Semantic Role | Weight |
 |---|---:|
@@ -201,28 +143,22 @@ It is selected because it is:
 | Body | Regular |
 | Caption | Regular |
 
----
+### Mixed-language Rule
 
-## Mixed-Language Rule
-
-When Japanese and English appear together:
+When reliable language-specific assignment is supported:
 
 ```text
 Japanese: BIZ UDPゴシック
 English and numbers: Inter
 ```
 
-Use language-specific font assignment only when the application supports it reliably.
+Do not switch fonts character by character when doing so creates unstable layout or maintenance.
 
-Do not manually switch fonts character by character when doing so creates unstable layout, inconsistent spacing, or difficult maintenance.
+In constrained environments, prioritize consistent hierarchy and readability over strict language separation.
 
-In environments where mixed-font control is limited, prioritize consistency and readability over strict font separation.
+### Fallbacks
 
----
-
-## Fallback Fonts
-
-### Japanese
+Japanese:
 
 ```css
 "BIZ UDPGothic",
@@ -232,7 +168,7 @@ In environments where mixed-font control is limited, prioritize consistency and 
 sans-serif
 ```
 
-### Latin and Numeric
+Latin and numeric:
 
 ```css
 "Inter",
@@ -242,78 +178,50 @@ sans-serif
 sans-serif
 ```
 
-Fallback fonts should preserve the intended hierarchy and approximate readability of the primary typefaces.
-
-When a primary font is unavailable, do not compensate by changing arbitrary font sizes.
-
----
-
-# Hierarchy
-
-Typography hierarchy is determined by meaning, not by visual preference.
-
-Never increase font size simply to attract attention.
-
-Hierarchy should communicate:
-
-- Information importance
-- Content relationships
-- Reading order
-- Section boundaries
-- Supporting context
-
-Typography must not be used as decoration without semantic meaning.
+Fallbacks must preserve intended hierarchy and approximate readability. Do not compensate for substitution by inventing arbitrary sizes.
 
 ---
 
 ## Core Hierarchy
 
-The LINKGENT Typography System uses the following primary levels.
+Typography hierarchy is determined by meaning, not visual preference.
 
-| Token | PowerPoint Size | Default Weight | Semantic Role |
+| Token | PowerPoint Baseline | Default Weight | Semantic Role |
 |---|---:|---:|---|
-| Display | 36 pt | Bold / SemiBold | Cover title, hero statement, major message |
-| H1 | 28 pt | Bold / SemiBold | Primary section heading |
-| H2 | 20 pt | Bold / SemiBold | Secondary section heading |
-| Body Large | 18 pt | Regular | Lead text, key explanation, introductory statement |
-| Body | 16 pt | Regular | Standard content |
-| Caption | 11 pt | Regular | Notes, metadata, sources, labels |
+| `Typography/Display` | 36 pt | Bold / SemiBold | Cover title, hero statement, major message |
+| `Typography/Heading/H1` | 28 pt | Bold / SemiBold | Primary section heading |
+| `Typography/Heading/H2` | 20 pt | Bold / SemiBold | Secondary section heading |
+| `Typography/Body/Large` | 18 pt | Regular | Lead text, key explanation, introduction |
+| `Typography/Body/Default` | 16 pt | Regular | Standard content |
+| `Typography/Caption` | 11 pt | Regular | Notes, metadata, sources, labels |
 
-These values are the current PowerPoint implementation baseline.
+These values are the current PowerPoint implementation baseline. Other platforms must preserve equivalent perceived hierarchy rather than reproduce point sizes mechanically.
 
-Equivalent values for other platforms should preserve the same semantic hierarchy rather than reproduce point sizes mechanically.
-
----
-
-## Hierarchy Order
-
-The standard hierarchy is:
+Hierarchy order:
 
 ```text
 Display
-↓
-H1
-↓
-H2
-↓
-Body Large
-↓
-Body
-↓
+  ↓
+Heading/H1
+  ↓
+Heading/H2
+  ↓
+Body/Large
+  ↓
+Body/Default
+  ↓
 Caption
 ```
 
-Hierarchy levels may be omitted when they are unnecessary.
+Rules:
 
-Do not introduce an intermediate style merely to fill a visual gap.
+- Omit unnecessary levels.
+- Do not create intermediate styles merely to fill a visual gap.
+- Do not skip levels when doing so obscures structure.
+- Never increase size simply to attract attention.
+- Use no more hierarchy levels than the content requires.
 
-Avoid skipping semantic levels when doing so makes the information structure unclear.
-
----
-
-## Display Usage
-
-`Display` replaces the previous `H0` naming.
+### Display Usage
 
 Display is intended for:
 
@@ -323,55 +231,74 @@ Display is intended for:
 - Major presentation statements
 - High-level campaign messages
 
-Display is not a document heading level.
-
-It should be used selectively and should not appear repeatedly within dense content.
+Display is not a document heading level and should not be repeated through dense content.
 
 ---
 
-# Scale
+## Rule IDs
 
-The LINKGENT typography scale is intentionally optical rather than mathematical.
+The following IDs are canonical cross-file references.
 
-The chosen sizes prioritize:
+### TYPE-PRESENTATION-MIN-BODY
 
-- Visual balance
+```yaml
+value: 16 pt
+scope: standard presentation body text
+```
+
+Do not reduce Body below this value to fit content. Rewrite, restructure, or split the content.
+
+### TYPE-PRESENTATION-MIN-CAPTION
+
+```yaml
+value: 11 pt
+scope: presentation sources, labels, metadata, and genuinely secondary notes
+```
+
+Caption must not replace Body for primary information.
+
+### TYPE-PRESENTATION-HIERARCHY
+
+```yaml
+maximum_visible_levels_per_slide: 3
+primary_rule: hierarchy follows semantic meaning
+```
+
+A slide should communicate one primary message and reveal reading order within a few seconds.
+
+---
+
+## Scale and Rhythm
+
+The typography scale is intentionally optical rather than mathematically generated.
+
+It prioritizes:
+
 - Readability
-- Information density
-- Platform compatibility
 - Japanese character legibility
-- Presentation viewing distance
+- Information density
+- Viewing distance
+- Cross-platform compatibility
+- Visual balance
 
-The scale does not depend on a fixed mathematical ratio.
-
-Numeric ratios are implementation details and should not override visual judgment or semantic meaning.
-
-When adapting typography to another platform, preserve the perceived hierarchy rather than calculating every size from a single base value.
-
----
-
-## Line Height
-
-Recommended line heights:
+### Line Height
 
 | Style | Recommended Line Height |
 |---|---:|
 | Display | 115–125% |
-| H1 | 120–130% |
-| H2 | 125–140% |
-| Body Large | 145–160% |
-| Body | 150–165% |
+| Heading/H1 | 120–130% |
+| Heading/H2 | 125–140% |
+| Body/Large | 145–160% |
+| Body/Default | 150–165% |
 | Caption | 140–155% |
 
 Japanese body text generally requires more line height than English text.
 
-Line height should support reading flow without visually separating lines into unrelated blocks.
+Line height should support flow without visually separating related lines.
 
----
+### Letter Spacing
 
-## Letter Spacing
-
-Default letter spacing:
+Default:
 
 ```text
 0
@@ -385,48 +312,24 @@ Recommended maximum:
 +1%
 ```
 
-Avoid negative tracking for Japanese text.
+Avoid negative tracking for Japanese text. Do not use letter spacing to force content into a fixed layout.
 
-Do not use letter spacing to force text into a fixed layout.
+### Vertical Rhythm
 
----
+Spacing must reflect semantic relationships:
 
-## Vertical Rhythm
-
-Typography must work together with spacing.
-
-Headings, paragraphs, captions, and supporting elements should follow a consistent vertical rhythm.
-
-Spacing should reflect semantic relationships:
-
-- Closely related items should appear closer together
-- New sections should have clearly larger separation
-- Captions should remain visually attached to the content they describe
-- Headings should not appear detached from their following content
+- Closely related items appear closer together.
+- New sections receive clearly larger separation.
+- Captions remain attached to the content they describe.
+- Headings remain connected to their following content.
 
 Typography and spacing must be designed as one system.
 
 ---
 
-# Naming Convention
+## Naming Convention
 
-Typography styles must use semantic, predictable, and cross-platform names.
-
-The recommended hierarchy is:
-
-```text
-Typography/
-├── Display
-├── Heading/
-│   ├── H1
-│   └── H2
-├── Body/
-│   ├── Large
-│   └── Default
-└── Caption
-```
-
-Recommended flattened names for tools that do not support nested naming:
+Canonical names:
 
 ```text
 Typography/Display
@@ -437,11 +340,7 @@ Typography/Body/Default
 Typography/Caption
 ```
 
----
-
-## Naming Principles
-
-Typography names should describe meaning, not appearance.
+Names must describe meaning, not appearance.
 
 Preferred:
 
@@ -455,198 +354,120 @@ Avoid:
 18px Regular
 ```
 
-Preferred:
-
-```text
-Typography/Heading/H1
-```
-
-Avoid:
-
-```text
-Big Bold Title
-```
-
-Numeric values may be included in implementation metadata, but they should not be the primary identity of a typography token.
+Numeric values may appear in implementation metadata but must not be the identity of the token.
 
 ---
 
 ## Design Token Alignment
 
-Typography naming should align with Design Tokens.
+Typography tokens are defined in this file and operationalized by [`05_Design_Tokens.md`](./05_Design_Tokens.md).
 
-Example conceptual token structure:
+Each token maps:
 
-```json
-{
-  "typography": {
-    "display": {},
-    "heading": {
-      "h1": {},
-      "h2": {}
-    },
-    "body": {
-      "large": {},
-      "default": {}
-    },
-    "caption": {}
-  }
-}
+```yaml
+font_family:
+font_size:
+font_weight:
+line_height:
+letter_spacing:
+semantic_role:
 ```
 
-Typography tokens represent semantic meaning.
-
-Font family, size, weight, line height, and letter spacing are implementation properties of those tokens.
+AI and implementation systems should reference the semantic token first, then resolve platform values.
 
 ---
 
-# Usage
+## Presentation Application
 
-## Presentation Rule
-
-Presentations must use typography to support rapid visual scanning.
-
-Core rules:
-
-- Use a maximum of three hierarchy levels per slide
-- Communicate one primary message per slide
-- Avoid paragraphs exceeding five lines
-- Use typography to make the reading order immediately visible
-- Keep supporting information visually subordinate
-- Avoid filling empty space by enlarging text without semantic reason
-- Use Display only for major statements
-- Use Caption only for genuinely secondary information
-
-Typography should help viewers understand the slide structure within a few seconds.
-
-A presentation should not require the audience to read every word before understanding its message.
-
----
-
-## PowerPoint
-
-PowerPoint should use the official typography hierarchy without arbitrary font sizes.
-
-Recommended mapping:
-
-| Token | Size |
-|---|---:|
-| Display | 36 pt |
-| H1 | 28 pt |
-| H2 | 20 pt |
-| Body Large | 18 pt |
-| Body | 16 pt |
-| Caption | 11 pt |
+Presentations must support rapid visual scanning.
 
 Rules:
 
-- Use the Slide Master whenever possible
-- Avoid local text overrides
-- Use one Typography System per presentation
-- Maintain a maximum of three visible hierarchy levels per slide
-- Do not use Caption as a replacement for Body
-- Do not reduce Body below the defined minimum simply to fit content
-- Rewrite or restructure overflowing content instead
+- Apply `TYPE-PRESENTATION-HIERARCHY`.
+- Communicate one primary message per slide.
+- Avoid paragraphs exceeding five lines where possible.
+- Make reading order immediately visible.
+- Keep supporting information subordinate.
+- Use Display only for major statements.
+- Use Caption only for genuinely secondary information.
+- Do not enlarge text simply to fill space.
+- Do not reduce Body or Caption below their canonical minimums.
+
+PowerPoint implementation should use the Slide Master and avoid local text overrides.
 
 ---
 
-## Web
+## Web Application
 
 Use semantic HTML and map visual styles to typography tokens.
 
-Recommended mapping:
-
-| Typography Token | Semantic HTML |
+| Typography Token | Typical Semantic HTML |
 |---|---|
 | Display | Hero heading or presentation element |
-| H1 | `h1` |
-| H2 | `h2` |
-| Body Large | Lead paragraph or emphasized introduction |
-| Body | `p`, `li`, form text |
+| Heading/H1 | `h1` |
+| Heading/H2 | `h2` |
+| Body/Large | Lead paragraph or emphasized introduction |
+| Body/Default | `p`, `li`, form text |
 | Caption | `small`, metadata, supporting label |
 
-Semantic HTML must not be selected solely to reproduce a visual size.
-
-Heading tags should reflect the actual document structure.
-
-Visual typography tokens and HTML semantics should support each other without becoming interchangeable.
+HTML semantics must reflect document structure rather than visual size alone.
 
 ---
 
-## Word
+## Word and Google Docs Application
 
-Use Word’s built-in style system instead of manual formatting.
+Use the platform style system instead of manual formatting.
 
-Recommended mapping:
-
-| LINKGENT Token | Word Style |
+| LINKGENT Token | Typical Document Style |
 |---|---|
 | Display | Title |
-| H1 | Heading 1 |
-| H2 | Heading 2 |
-| Body Large | Subtitle or custom Lead style |
-| Body | Normal |
+| Heading/H1 | Heading 1 |
+| Heading/H2 | Heading 2 |
+| Body/Large | Subtitle or Lead |
+| Body/Default | Normal |
 | Caption | Caption |
 
 Rules:
 
-- Modify styles centrally
-- Avoid manual formatting of individual paragraphs
-- Preserve heading structure for navigation and accessibility
-- Use real lists rather than manually typed symbols
-- Do not use font size alone to indicate document structure
+- Modify styles centrally.
+- Preserve heading structure for navigation and accessibility.
+- Use real lists.
+- Do not indicate structure through font size alone.
 
 ---
 
-## Figma
+## Figma Application
 
-Typography must be implemented as shared Text Styles or Variables-supported tokens.
-
-Recommended names:
-
-```text
-Typography/Display
-Typography/Heading/H1
-Typography/Heading/H2
-Typography/Body/Large
-Typography/Body/Default
-Typography/Caption
-```
+Use shared Text Styles or token-linked variables.
 
 Rules:
 
-- Use shared styles rather than local formatting
-- Avoid duplicate styles with slightly different values
-- Do not name styles by screen or component unless the semantic role differs
-- Connect typography styles to Design Tokens where technically possible
-- Document platform-specific exceptions
+- Avoid duplicate styles with slightly different values.
+- Do not name styles by screen or component unless semantic meaning differs.
+- Connect styles to Design Tokens where technically possible.
+- Document platform-specific exceptions.
 
 ---
 
-## Canva
+## Canva Application
 
-Create Canva Brand Kit text styles that correspond to the official hierarchy.
+Map Brand Kit text styles to the canonical hierarchy.
 
 Rules:
 
-- Use the approved font hierarchy
-- Avoid arbitrary font sizes
-- Avoid creating a new style for each design
-- Use Display selectively
-- Preserve hierarchy when templates are duplicated
-- Check font substitution before export
-
-When Inter or BIZ UDPゴシック is unavailable, use the approved fallback font and retain the semantic style name.
+- Avoid arbitrary sizes.
+- Avoid creating a new style for each design.
+- Preserve hierarchy when templates are duplicated.
+- Check font substitution before export.
+- Retain semantic style names when using approved fallback fonts.
 
 ---
 
-## AI Generation
+## AI Application
 
-AI should always reference typography tokens before considering numeric values.
+AI must reference typography tokens before numeric values.
 
-Tokens represent semantic meaning, while numeric values are implementation details.
-
-Preferred prompt instruction:
+Preferred:
 
 ```text
 Use Typography/Heading/H1 for the section title.
@@ -662,132 +483,63 @@ Use 16 pt regular text.
 Use 11 pt gray text.
 ```
 
-Numeric values may be supplied as implementation context after the semantic token has been defined.
+Numeric values may be supplied only as platform implementation context after the semantic role is defined.
 
-Example:
+AI must:
 
-```text
-Apply Typography/Heading/H1.
-In PowerPoint, this token is implemented as 28 pt Bold.
-```
-
-AI-generated outputs should:
-
-- Use only approved typography tokens
-- Preserve semantic hierarchy
-- Avoid inventing new font sizes
-- Avoid using visual emphasis without structural meaning
-- Follow platform-specific implementations
-- Maintain accessibility requirements
-- Preserve vertical rhythm
+- Use approved typography tokens.
+- Preserve semantic hierarchy.
+- Avoid inventing sizes.
+- Avoid emphasis without structural meaning.
+- Follow platform mappings.
+- Preserve accessibility and vertical rhythm.
 
 ---
 
-# Accessibility
+## Accessibility
 
-Typography must remain accessible across all LINKGENT outputs.
+Accessibility is a system requirement.
 
-Accessibility is a system requirement, not an optional adjustment.
-
----
-
-## Minimum Size
-
-Recommended minimum sizes:
+### Minimum Size
 
 | Content Type | Minimum |
 |---|---:|
 | Web Body | 16 px |
-| Presentation Body | 16 pt |
-| Presentation Caption | 11 pt |
-| Long-form document Body | 10.5–11 pt, depending on format |
+| Presentation Body | Apply `TYPE-PRESENTATION-MIN-BODY` |
+| Presentation Caption | Apply `TYPE-PRESENTATION-MIN-CAPTION` |
+| Long-form document Body | 10.5–11 pt depending on format |
 
-Do not reduce text below the defined minimum to fit excessive content.
+Do not reduce text below the minimum to fit excessive content.
 
-Edit, shorten, split, or restructure the content instead.
+### Contrast
 
----
+Text and backgrounds must comply with canonical Color System contrast rules.
 
-## Contrast
+Typography styles must reference semantic Color roles rather than define independent text colors.
 
-Text and background combinations should meet WCAG AA contrast requirements.
+### Alignment
 
-As a general target:
+Prefer left alignment for paragraphs, lists, instructions, and data descriptions.
 
-- Normal text: minimum 4.5:1
-- Large text: minimum 3:1
-
-Typography tokens should reference approved semantic colors from the LINKGENT Color System.
-
-Do not define text colors independently within typography styles unless required by the platform.
-
----
-
-## Alignment
-
-Prefer left alignment for:
-
-- Paragraphs
-- Lists
-- Long explanations
-- Instructions
-- Data descriptions
-
-Centered alignment may be used for:
-
-- Short titles
-- Cover messages
-- Brief statements
-- Intentional presentation moments
+Centered alignment is appropriate for short titles, covers, brief statements, and intentional presentation moments.
 
 Avoid long centered paragraphs.
 
-Centered text reduces scanning efficiency and creates inconsistent reading anchors.
+### Capitalization
 
----
+Avoid long ALL CAPS passages. Use uppercase sparingly for short labels or compact metadata.
 
-## Capitalization
+Capitalization must not be the only indication of hierarchy.
 
-Avoid long passages written in ALL CAPS.
+### Color Dependency
 
-ALL CAPS may be used sparingly for:
+Do not use color alone to communicate importance, status, error, selection, category, or hierarchy.
 
-- Short labels
-- Small interface categories
-- Compact metadata
+Combine color with position, weight, labels, icons, shapes, patterns, or text description.
 
-Do not use capitalization as the only indication of hierarchy.
+### Emphasis
 
----
-
-## Color Dependency
-
-Do not use color alone to communicate:
-
-- Importance
-- Status
-- Error
-- Selection
-- Category
-- Hierarchy
-
-Combine color with at least one additional signal, such as:
-
-- Position
-- Weight
-- Label
-- Icon
-- Shape
-- Pattern
-- Text description
-
----
-
-## Emphasis
-
-Use emphasis sparingly.
-
-Preferred emphasis methods:
+Preferred order:
 
 1. Structural placement
 2. Heading hierarchy
@@ -795,104 +547,93 @@ Preferred emphasis methods:
 4. Spacing
 5. Color
 
-Avoid excessive bolding, underlining, or mixed emphasis styles.
+Avoid excessive bolding, underlining, or mixed emphasis styles. Underlining should primarily indicate links in digital contexts.
 
-Underlining should primarily indicate links in digital environments.
-
----
-
-## Readability
+### Readability
 
 Avoid:
 
 - Long centered paragraphs
-- Excessively long line lengths
+- Excessive line lengths
 - Dense blocks without spacing
-- Arbitrary font-size reduction
+- Arbitrary size reduction
 - Low-contrast text
 - Decorative outlines
 - Text over complex imagery
-- Narrow text columns with forced line breaks
-
-Typography should support scanning, comprehension, and sustained reading.
+- Narrow columns with forced line breaks
 
 ---
 
-# Do
+## Do
 
-- Use predefined typography tokens
-- Determine hierarchy by meaning
-- Keep typography consistent across platforms
-- Use semantic naming
-- Maintain consistent vertical rhythm
-- Preserve generous line spacing
-- Prefer left alignment for long-form text
-- Use shared styles instead of local formatting
-- Keep font usage minimal
-- Follow minimum-size requirements
-- Use typography together with spacing
-- Map typography to Design Tokens
-- Reference semantic tokens in AI prompts
-- Restructure content when it does not fit
+- Use predefined typography tokens.
+- Determine hierarchy by meaning.
+- Use semantic naming.
+- Maintain consistent vertical rhythm.
+- Preserve appropriate line spacing.
+- Prefer left alignment for long-form text.
+- Use shared styles rather than local formatting.
+- Keep font usage minimal.
+- Follow minimum-size requirements.
+- Reference semantic tokens in AI specifications.
+- Restructure content when it does not fit.
 
 ---
 
-# Don't
+## Don't
 
-- Use typography to compensate for poor information architecture
-- Increase font size simply to attract attention
-- Create arbitrary font sizes
-- Mix multiple Japanese fonts without purpose
-- Mix serif and sans-serif typefaces without a defined system
-- Use more hierarchy levels than the content requires
-- Center-align long paragraphs
-- Stretch, compress, or distort text
-- Override shared text styles locally
-- Use Caption for primary content
-- Use color alone to communicate meaning
-- Reduce text below the minimum size to fit content
-- Add unnecessary shadows, outlines, gradients, or effects
-- Name styles according to visual appearance
-- Use typography as decoration without semantic purpose
+- Use typography to compensate for poor information architecture.
+- Create arbitrary sizes.
+- Mix multiple Japanese fonts without purpose.
+- Mix serif and sans-serif typefaces without a defined system.
+- Use more hierarchy levels than required.
+- Center-align long paragraphs.
+- Stretch, compress, or distort text.
+- Override shared styles locally without a documented reason.
+- Use Caption for primary content.
+- Use color alone to communicate meaning.
+- Reduce text below minimum sizes.
+- Add unnecessary shadows, outlines, gradients, or effects.
+- Name styles by visual appearance.
+- Use typography as decoration without semantic purpose.
 
 ---
 
-# Future Improvements
+## Lifecycle and Validation
 
-Future versions of the LINKGENT Typography System may include:
+This document is `Release Candidate` because the conceptual system and platform mappings are defined, but implementation evidence is not complete.
+
+Before `Active`, validate:
+
+- PowerPoint Theme implementation
+- Word style implementation
+- Figma Text Style or Variable mapping
+- Canva substitution behavior
+- Web token mapping
+- Japanese and English mixed-language rendering
+- Accessibility minimums
+- AI semantic interpretation
+- Presentation Golden Deck typography behavior
+
+---
+
+## Future Improvements
 
 - Responsive typography definitions
-- Cross-platform Token Export
-- CSS and JSON token generation
-- PowerPoint Theme Automation
-- Word Style Template Automation
+- Machine-readable token export
+- PowerPoint Theme automation
+- Word style template automation
 - Figma Variables synchronization
 - Canva Brand Kit synchronization
 - Variable font support
-- Multilingual typography rules
-- Japanese and English optical adjustment rules
-- Dark-mode typography validation
+- Multilingual optical adjustment
+- Dark-mode validation
 - Automated accessibility checking
-- AI-readable typography metadata
-- Automated typography linting
+- Typography linting
 - Platform-specific token transformation
-- Integration with presentation-generation systems
-- Integration with document-generation systems
-
-The long-term objective is to define typography once and distribute it consistently across every platform.
 
 ---
 
-## Design Principles Summary
+## Design Principle
 
-LINKGENT typography should always be:
-
-- Structured
-- Intelligent
-- Reliable
-- Minimal
-- Accessible
-- Cross-platform
-- AI-readable
-
-Typography should reveal structure before attracting attention.
+LINKGENT typography should reveal structure before attracting attention.
