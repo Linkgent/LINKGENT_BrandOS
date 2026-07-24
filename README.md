@@ -66,8 +66,10 @@ LINKGENT_BrandOS/
 │       └── GitHub CopilotおよびAIメンテナー向けの作業指示
 │
 ├── templates/
-│   └── README.md
-│       └── 再利用可能なテンプレートの目的・配置・管理ルール
+│   ├── README.md
+│   │   └── 再利用可能な実装テンプレートの目的・配置・管理ルール
+│   └── presentation/
+│       └── Presentation Systemを実装した媒体別テンプレート資産
 │
 └── docs/
     │
@@ -87,7 +89,7 @@ LINKGENT_BrandOS/
     │   └── Color / Spacing / Radius / Shadow / Stroke / Grid
     │
     ├── 06_Iconography.md
-    │   └── Material Symbols Outlinedの利用ルール
+    │   └── アイコンの意味・スタイル・アクセシビリティ・利用ルール
     │
     ├── 07_Photography.md
     │   └── 写真・撮影・AI生成写真のルール
@@ -101,27 +103,38 @@ LINKGENT_BrandOS/
     ├── 10_Presentation_System/
     │   │
     │   ├── README.md
-    │   │   └── Presentation Systemの目的・全体構成・参照順
+    │   │   └── Presentation Systemの目的・全体構成・ガバナンス・参照順
     │   │
     │   ├── Thinking.md
-    │   │   └── Presentation Thinking / Audience First /
-    │   │       Information Architecture / Information Density
+    │   │   └── Canonical Process / Content Architecture /
+    │   │       Narrative Architecture / Slide Architecture
+    │   │
+    │   ├── Content.md
+    │   │   └── タイトル・本文・数値・出典・脚注・引用・翻訳・Alt Text
     │   │
     │   ├── Layout.md
-    │   │   └── PowerPointのグリッド・余白・整列・情報配置
+    │   │   └── Cross-platform presentation layout, grid, safe area,
+    │   │       alignment, whitespace, density, and spatial rules
     │   │
     │   ├── Components.md
-    │   │   └── Title / Card / Callout / Table / Chart /
-    │   │       Timeline / KPI / Process / Comparison
+    │   │   └── Presentation内で再利用するsemantic componentと成熟度管理
     │   │
-    │   ├── Templates.md
-    │   │   └── 表紙・課題・提案・比較・ロードマップ・まとめ等
+    │   ├── Patterns.md
+    │   │   └── Problem / Insight / Decision / Comparison / Process等の
+    │   │       Communication Pattern
     │   │
     │   ├── AI_Generation.md
-    │   │   └── AIがPowerPointを生成するときの判断・生成ルール
+    │   │   └── AI reasoning, specification, generation, adaptation,
+    │   │       traceability, and validation across presentation platforms
     │   │
-    │   └── Checklist.md
-    │       └── 生成後・納品前の品質確認
+    │   ├── Accessibility.md
+    │   │   └── 閲覧・登壇・変換・書き出しを含むPresentation accessibility
+    │   │
+    │   ├── Release_Gates.md
+    │   │   └── すべての成果物に適用する必須リリースゲート
+    │   │
+    │   └── Audit_Checklist.md
+    │       └── Risk-based Audit / Full Auditの詳細基準
     │
     ├── 11_Web_System.md
     │   └── Webでのブランド・UI・コンポーネント利用ルール
@@ -146,6 +159,40 @@ Brand OSの知識は、以下の順で継承されます。
 7. Generated Artifacts
 
 下位の定義は上位の知識を継承し、矛盾させてはいけません。詳細な優先順位と解釈基準は[`CONSTITUTION.md`](./CONSTITUTION.md)を参照してください。
+
+## Knowledge Lifecycle
+
+Brand OSのドキュメントは、以下のLifecycleを使用します。
+
+```text
+Draft
+  ↓
+In Review
+  ↓
+Release Candidate
+  ↓
+Active
+  ↓
+Deprecated
+  ↓
+Archived
+```
+
+- **Draft**：作成中であり、正式レビュー前
+- **In Review**：構造化されたレビュー中
+- **Release Candidate**：思想と定義は完成しているが、実装・検証が未完了
+- **Active**：承認・実装・検証が完了し、通常運用できる正本
+- **Deprecated**：新規利用を停止し、移行期間中
+- **Archived**：履歴として保存し、運用上は参照しない
+
+`Git Ready`はLifecycleではなく、リポジトリ作業上の状態であるためStatusには使用しません。
+
+## Ownership
+
+- **Owner**：意味・方針・承認に責任を持つ役割または責任者
+- **Maintainer**：正本の更新、整合性確認、履歴管理を担う役割または責任者
+
+`LINKGENT Brand OS`のような知識体系そのものをOwnerとして指定しません。
 
 ## Operating Rules
 
