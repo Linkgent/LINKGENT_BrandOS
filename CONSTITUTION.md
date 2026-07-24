@@ -1,213 +1,329 @@
-# LINKGENT Brand OS Repository Constitution
+# LINKGENT Brand OS Constitution
 
-## Status
+## 1. Purpose
 
-This document is the governing constitution for the `Linkgent/LINKGENT_BrandOS` repository.
+この文書は、LINKGENT Brand OSを構成するすべてのブランド知識に共通する最上位原則を定義します。
 
-All maintainers, contributors, AI assistants, and connected tools must treat this file as the highest-priority operational guidance for repository changes, unless an explicit repository owner instruction overrides it.
+LINKGENT Brand OSは、単なるブランドガイドラインではありません。
 
-## Mission
+ブランドの思想、言語、視覚表現、デザイン判断、媒体別ルール、再利用可能なテンプレート、AIによる生成判断を、ひとつの知識体系として接続するためのBrand Knowledge Systemです。
 
-Maintain and evolve LINKGENT Brand OS as the single source of truth for LINKGENT's brand system, design system, and AI knowledge base.
+本Constitutionの目的は、個別の制作物やツールが変わっても、LINKGENTらしさを一貫して理解・判断・再現できる状態を維持することです。
 
-This repository is not merely a brand guideline. It is the shared operating system referenced by:
+## 2. Constitutional Role
 
-- PowerPoint
-- Web
-- Figma
-- Canva
-- Word
-- Illustrator
-- Photoshop
-- Generative AI
+この文書は、個別の色、フォント、レイアウト、コンポーネント、テンプレートを直接定義するものではありません。
 
-## Core Principles
+本Constitutionが定義するのは、以下です。
 
-1. **Single Source of Truth**  
-   GitHub-hosted Markdown in this repository is the authoritative source.
+- Brand OSが何を正とするか
+- ブランド知識をどのような階層で管理するか
+- 上位概念を下位システムへどのように継承するか
+- ファイル間の矛盾をどのように扱うか
+- 人とAIがブランド知識をどのように解釈するか
+- 新しい媒体・ツール・表現をどのようにBrand OSへ接続するか
 
-2. **System Consistency First**  
-   Prioritize consistency across the entire Brand OS over optimization of a single file.
+Mission、Vision、Value、Personality、Tone & Voiceなどのブランド固有定義は、[`docs/01_Brand_Core.md`](./docs/01_Brand_Core.md)を正本とします。
 
-3. **Do Not Rewrite the Brand Arbitrarily**  
-   Do not change LINKGENT's brand philosophy, terminology, design principles, or system architecture without an explicit instruction.
+## 3. Definition of Brand OS
 
-4. **Understand Before Editing**  
-   Review the target file and all materially related files before creating or updating content.
+LINKGENT Brand OSは、以下を統合する唯一のブランド知識基盤です。
 
-5. **Human- and AI-Readable Structure**  
-   Maintain content that is clear, structured, searchable, and reusable by both people and AI systems.
+- Brand System
+- Design System
+- Content and Communication Principles
+- Channel-specific Systems
+- Reusable Templates
+- AI Knowledge Base
+- Generation and Quality Rules
 
-6. **Tool-Agnostic Rules**  
-   Define principles at the Brand OS level whenever possible. Tool-specific rules should extend shared principles rather than contradict them.
+PowerPoint、Web、Figma、Canva、Word、Illustrator、Photoshop、生成AIなどは、それぞれ独立したブランドルールを持つのではなく、Brand OSの知識を媒体に応じて継承・適用します。
 
-7. **GitHub-Ready Quality**  
-   Markdown must be complete, internally consistent, readable in GitHub, and ready to commit without additional cleanup.
+## 4. Single Source of Truth
 
-## Repository Structure
+GitHub上のMarkdownを、LINKGENT Brand OSにおける唯一の正とします。
 
-```text
-LINKGENT_BrandOS/
-│
-├── README.md
-│   └── リポジトリ全体の概要・目的・構成・運用ルール
-│
-├── CONSTITUTION.md
-│   └── AI・メンテナー向けの最上位運用原則
-│
-├── .github/
-│   └── copilot-instructions.md
-│       └── GitHub CopilotがCONSTITUTION.mdを参照するための入口
-│
-└── docs/
-    │
-    ├── 01_Brand_Core.md
-    │   └── Mission / Vision / Value / Personality / Tone & Voice
-    │
-    ├── 02_Visual_Identity.md
-    │   └── ロゴ・VI・ブランド表現の基本方針
-    │
-    ├── 03_Color_System.md
-    │   └── Corporate Color / Semantic Color / 印刷・デジタル利用ルール
-    │
-    ├── 04_Typography.md
-    │   └── フォント・階層・スケール・利用ルール
-    │
-    ├── 05_Design_Tokens.md
-    │   └── Color / Spacing / Radius / Shadow / Stroke / Grid
-    │
-    ├── 06_Iconography.md
-    │   └── Material Symbols Outlinedの利用ルール
-    │
-    ├── 07_Photography.md
-    │   └── 写真・撮影・AI生成写真のルール
-    │
-    ├── 08_Illustration.md
-    │   └── イラストのスタイル・利用・禁止事項
-    │
-    ├── 09_Layout_System.md
-    │   └── Grid / Alignment / Whitespace / Container
-    │
-    ├── 10_Presentation_System/
-    │   │
-    │   ├── README.md
-    │   │   └── Presentation Systemの目的・全体構成・参照順
-    │   │
-    │   ├── Thinking.md
-    │   │   └── Presentation Thinking / Audience First /
-    │   │       Information Architecture / Information Density
-    │   │
-    │   ├── Layout.md
-    │   │   └── PowerPointのグリッド・余白・整列・情報配置
-    │   │
-    │   ├── Components.md
-    │   │   └── Title / Card / Callout / Table / Chart /
-    │   │       Timeline / KPI / Process / Comparison
-    │   │
-    │   ├── Templates.md
-    │   │   └── 表紙・課題・提案・比較・ロードマップ・まとめ等
-    │   │
-    │   ├── AI_Generation.md
-    │   │   └── AIがPowerPointを生成するときの判断・生成ルール
-    │   │
-    │   └── Checklist.md
-    │       └── 生成後・納品前の品質確認
-    │
-    ├── 11_Web_System.md
-    │   └── Webでのブランド・UI・コンポーネント利用ルール
-    │
-    ├── 12_Document_System.md
-    │   └── Word・Google Docs・帳票・名刺等の文書ルール
-    │
-    └── 13_AI_Generation_Rules.md
-        └── 複数AI・制作ツール共通のブランド生成ルール
-```
+ブランドに関する判断が、チャット、口頭、ローカルファイル、デザインデータ、過去の制作物のみに存在する場合、それはまだ正式なBrand OSではありません。
 
-## Change Rules
+恒久的に参照すべき判断は、適切な正本ファイルへ反映されて初めてBrand OSの知識となります。
 
-- Confirm the existing repository structure before creating a file.
-- Read the target file before updating it.
-- Review related files when terminology, tokens, visual rules, layouts, components, or AI behavior may overlap.
-- Preserve established naming, hierarchy, and terminology.
-- Do not duplicate rules across files without a clear ownership boundary.
-- Prefer references between files over conflicting repeated definitions.
-- State assumptions explicitly when minor interpretation is unavoidable.
-- Ask the Brand Director when an unresolved question could materially change the system.
-- Use Conventional Commits.
-- Write commit messages that make the reason for the change understandable.
+外部ツール上のスタイル、コンポーネント、テンプレート、プロンプトは、GitHub上の定義を実装した派生物として扱います。
 
-## Conventional Commit Guidance
+## 5. Knowledge Architecture
 
-Use one of the following patterns as appropriate:
+Brand OSの知識は、以下の階層で構成します。
 
-```text
-docs: add color system
+### Level 0: Constitution
 
-docs(presentation): update layout rules
+Brand OS全体に共通する最上位原則、知識階層、継承、解釈、矛盾解消の基準を定義します。
 
-fix(docs): resolve conflicting typography definitions
+- `CONSTITUTION.md`
 
-refactor(brand-os): consolidate duplicated AI guidance
+### Level 1: Brand Core
 
-chore(repo): add repository maintenance instructions
-```
+LINKGENTが何者であり、何を目指し、どのように振る舞うかを定義します。
 
-## Standard Workflow
+- Mission
+- Vision
+- Value
+- Personality
+- Tone & Voice
+- Brand Promise
+- Brand Story
+- Design Philosophy
 
-When the Brand Director requests a file creation or update:
+Canonical source:
 
-1. Inspect the repository structure.
-2. Read the target file if it exists.
-3. Read materially related Brand OS files.
-4. Identify dependencies, overlaps, and conflicts.
-5. Create or update Markdown at GitHub-ready quality.
-6. Verify consistency with the full Brand OS.
-7. Commit the change using Conventional Commits.
-8. Report what changed, why, and any remaining decisions.
+- `docs/01_Brand_Core.md`
 
-## Role Model
+### Level 2: Brand Foundations
 
-### Brand Director
+ブランド表現を構成する共通基盤を定義します。
 
-The repository owner acts as Brand Director and is responsible for:
+- Visual Identity
+- Color
+- Typography
+- Design Tokens
+- Iconography
+- Photography
+- Illustration
+- Layout
 
-- brand direction
-- system-level review
-- approving major conceptual changes
-- resolving ambiguous design decisions
-- prioritizing improvements
+Canonical sources:
 
-### Repository Maintainer
+- `docs/02_Visual_Identity.md`
+- `docs/03_Color_System.md`
+- `docs/04_Typography.md`
+- `docs/05_Design_Tokens.md`
+- `docs/06_Iconography.md`
+- `docs/07_Photography.md`
+- `docs/08_Illustration.md`
+- `docs/09_Layout_System.md`
 
-The dedicated maintainer or AI assistant is responsible for:
+### Level 3: Applied Systems
 
-- inspecting related files
-- maintaining structural consistency
-- drafting and editing Markdown
-- identifying conflicts and missing definitions
-- proposing improvements without silently changing philosophy
-- committing approved work to GitHub
+共通基盤を特定の媒体・制作環境へ適用するルールを定義します。
 
-## Conflict Resolution
+- Presentation System
+- Web System
+- Document System
 
-When rules conflict, apply the following priority order:
+Canonical sources:
 
-1. Explicit instruction from the Brand Director for the current task
-2. This `CONSTITUTION.md`
-3. Repository-level definitions in `README.md`
-4. Cross-system rules in `docs/`
-5. Tool-specific guidance
+- `docs/10_Presentation_System/`
+- `docs/11_Web_System.md`
+- `docs/12_Document_System.md`
 
-Do not resolve material contradictions silently. Surface them before changing the governing definition.
+### Level 4: AI Generation Rules
 
-## Definition of Done
+AIがBrand OSを読み取り、判断し、生成し、検証するときの共通ルールを定義します。
 
-A repository change is complete only when:
+Canonical source:
 
-- the target content is accurate and complete
-- related files remain consistent
-- terminology and hierarchy are preserved
-- Markdown renders correctly on GitHub
-- humans and AI can understand the rule
-- the commit message follows Conventional Commits
-- the change reason is traceable
+- `docs/13_AI_Generation_Rules.md`
+
+媒体固有のAI生成ルールは、各Applied Systemの中で共通ルールを拡張します。
+
+### Level 5: Templates
+
+Brand OSの判断を、再利用可能な実務形式として具体化します。
+
+Canonical location:
+
+- `templates/`
+
+テンプレートは新しいブランド原則を定義する場所ではありません。上位のBrand Core、Brand Foundations、Applied Systemsを実装した参照例です。
+
+### Level 6: Generated Artifacts
+
+プレゼンテーション、Webページ、文書、画像、デザインデータなどの成果物です。
+
+成果物はBrand OSの適用結果であり、Brand OSそのものではありません。
+
+## 6. Precedence of Knowledge
+
+ブランド知識が競合する場合、以下の優先順位を適用します。
+
+1. `CONSTITUTION.md`
+2. `docs/01_Brand_Core.md`
+3. 共通のBrand Foundations
+4. 媒体別のApplied Systems
+5. `docs/13_AI_Generation_Rules.md`および媒体固有のAI生成ルール
+6. `templates/`
+7. 過去の成果物・実装データ
+
+同一階層内では、対象をより具体的に定義する正本ファイルを優先します。ただし、具体的な定義が上位原則と矛盾する場合は、上位原則を優先します。
+
+一時的な指示や個別案件の要望は、その案件では有効でも、自動的にBrand OS全体の定義にはなりません。
+
+## 7. Core Knowledge Principles
+
+### 7.1 Intent Before Expression
+
+見た目や表現手段を決める前に、目的、対象者、伝えるべき内容、期待する行動を明確にします。
+
+ブランド表現は、意図を価値へ変換するための手段です。
+
+### 7.2 System Before Instance
+
+単一の制作物だけを最適化するのではなく、再現性、拡張性、他媒体との整合性を持つ仕組みとして判断します。
+
+例外を作る場合は、なぜ例外が必要かを説明できなければなりません。
+
+### 7.3 Semantics Before Decoration
+
+色、余白、タイポグラフィ、アイコン、図版、コンポーネントは、意味や情報構造を明確にするために使用します。
+
+装飾を目的として、情報階層や理解を損なってはいけません。
+
+### 7.4 Consistency Without Uniformity
+
+すべての媒体を同じ見た目に固定することを、一貫性とは呼びません。
+
+ブランドの思想、意味、品質基準を共有しながら、媒体特性、利用文脈、ユーザー行動に応じて適切に表現を変えます。
+
+### 7.5 Accessibility Is Brand Quality
+
+可読性、視認性、理解可能性、操作可能性は、追加要件ではなくブランド品質の一部です。
+
+美しさを理由に、情報アクセスを損なってはいけません。
+
+### 7.6 Human and AI Parity
+
+Brand OSは、人だけでなくAIも同じ意味で解釈できる必要があります。
+
+定義は、曖昧な感覚語だけに依存せず、目的、条件、適用範囲、禁止事項、例外、参照先を明示します。
+
+### 7.7 Traceable Decisions
+
+重要なブランド判断は、どの上位原則から導かれたかを追跡できる状態にします。
+
+定義、派生ルール、テンプレート、成果物の関係を切断してはいけません。
+
+### 7.8 Living System, Stable Core
+
+Brand OSは固定された完成品ではなく、事業、技術、媒体、利用状況の変化に応じて進化する知識体系です。
+
+ただし、変化のたびにBrand Coreや最上位原則を安易に書き換えてはいけません。拡張で対応できるものと、憲法改定が必要なものを区別します。
+
+## 8. Inheritance and Extension
+
+下位システムは、上位システムを継承します。
+
+- Applied SystemsはBrand CoreとBrand Foundationsを継承する
+- AI Generation RulesはBrand Core、Brand Foundations、Applied Systemsを解釈する
+- Templatesは上位ルールを具体的な形式へ実装する
+- Generated Artifactsは適切なテンプレートとルールを利用する
+
+下位ファイルは、上位ファイルの内容を無断で再定義してはいけません。
+
+媒体固有の条件により追加ルールが必要な場合は、上位ルールを否定するのではなく、適用条件を限定した拡張として定義します。
+
+## 9. Canonical Ownership
+
+各ブランド知識には、ひとつのCanonical Ownerを設定します。
+
+同じ定義を複数ファイルへ完全に複製するのではなく、正本をひとつに定め、他のファイルから参照します。
+
+例:
+
+- ブランド人格は`01_Brand_Core.md`
+- 色の意味と利用基準は`03_Color_System.md`
+- 文字サイズや階層は`04_Typography.md`
+- 共通スペーシング値は`05_Design_Tokens.md`
+- PowerPointでの余白適用は`10_Presentation_System/Layout.md`
+- AI共通の解釈規則は`13_AI_Generation_Rules.md`
+
+ファイル間で同じ概念を扱う場合は、以下を明確にします。
+
+- どのファイルが定義元か
+- どのファイルが適用・拡張を担当するか
+- どの条件で例外が認められるか
+
+## 10. Brand Knowledge States
+
+AIおよびメンテナーは、ブランド知識を以下の状態に区別します。
+
+### Defined
+
+正本ファイルに明示されている確定知識。
+
+### Derived
+
+複数の確定知識から論理的に導ける判断。根拠となるファイルを説明できる必要があります。
+
+### Proposed
+
+Brand OS改善のための提案。正式に採用され、正本へ反映されるまでは確定知識として扱いません。
+
+### Unknown
+
+Brand OS内に根拠がなく、推測が必要な状態。
+
+重大な判断がUnknownの場合、AIはもっともらしいルールを捏造してはいけません。
+
+## 11. AI Interpretation Principles
+
+AIはBrand OSを利用するとき、以下を守ります。
+
+- 作業対象だけでなく、上位のBrand Coreと関連する共通ルールを確認する
+- 明示された定義と、AIによる推論を区別する
+- 未定義事項を既存ルールのように断定しない
+- ブランド思想を一般的なデザイントレンドで上書きしない
+- 媒体固有のルールをBrand OS全体の原則へ昇格させない
+- 過去の成果物だけを根拠に新しいブランドルールを作らない
+- 生成時には適用した主要ルールを追跡できる状態にする
+- 矛盾や重大な不足がある場合は、Brand Directorへ判断を求める
+
+## 12. Evolution of the Brand OS
+
+Brand OSの変更は、以下の3種類に分類します。
+
+### Interpretation
+
+既存の定義を変更せず、適用方法や具体例を明確にする変更。
+
+### Extension
+
+新しい媒体、コンポーネント、テンプレート、AI利用方法などを追加する変更。上位原則を継承している必要があります。
+
+### Amendment
+
+Brand Core、知識階層、最上位原則などを変更する変更。
+
+AmendmentはBrand OS全体へ影響するため、Brand Directorによる明示的な判断を必要とします。
+
+## 13. Role of the Brand Director
+
+Brand Directorは、Brand OSの方向性と最終的な意味を統治します。
+
+主な責任は以下です。
+
+- Brand Coreの承認と改定
+- ブランド知識間の重大な矛盾の解決
+- 新しい原則をBrand OSへ採用するかの判断
+- 表現品質と事業価値の両面からのレビュー
+- Interpretation、Extension、Amendmentの境界判断
+
+AIおよびメンテナーは、Brand Directorの判断を再現可能な知識としてBrand OSへ構造化します。
+
+## 14. Constitutional Compliance
+
+Brand OSに準拠した定義・テンプレート・成果物は、以下を満たします。
+
+- Brand Coreとのつながりを説明できる
+- 正本となるルールを特定できる
+- 関連ファイルと矛盾していない
+- 情報構造と表現の意図が一致している
+- 媒体特性を考慮しながら、ブランドの意味を保持している
+- 人とAIの双方が再利用できる
+- 未定義事項を確定ルールとして偽装していない
+- 将来の拡張を妨げる不必要な固定化をしていない
+
+## 15. Constitutional Principle
+
+LINKGENT Brand OSは、ブランド表現を固定するための規則集ではありません。
+
+ブランドの思想を、異なる媒体、異なる人、異なるAIが、同じ意味と品質で判断・再現できるようにするための知識基盤です。
+
+すべての定義、システム、テンプレート、成果物は、この目的に従います。
